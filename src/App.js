@@ -12,7 +12,7 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import IntroPage from './pages/Docs/IntroPage';
 import Modal from './components/layout/Modal';
-
+import Loading from './components/layout/loading';
 
 export default function App() {
     const { state, dispatch } = useContext(Context);
@@ -21,7 +21,7 @@ export default function App() {
             dispatch({type: 'SIDEBAR', payload: {...state.sidebar, open: false}})
         }
     }
-    // if(state.pages && state.pages.length > 0) {
+    if(state.pages && state.pages.length > 0) {
         return (
             <>
                 <Navbar />
@@ -50,7 +50,7 @@ export default function App() {
                 </div>
             </>
         )
-    // } else {
-    //     return <h1>loading...</h1>
-    // }
+    } else {
+        return <Loading />
+    }
 };
