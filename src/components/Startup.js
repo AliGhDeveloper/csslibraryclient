@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { useQuery } from '@apollo/client';
 import { getPagesNamesQuery, refreshQuery } from '../utils/queries';
 import { Context } from "../store/globalstore";
-import { getData } from "../utils/fetchData";
+
 
 export default function Startup({ children }) {
     const auth = useQuery(refreshQuery);
