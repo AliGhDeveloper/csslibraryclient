@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300&display=swap');
+body {
+    font-family: Roboto
+}
+
+.note {
+    font-size : 2rem;
+    text-align: center
+};
+
+.image {
+    width: 100%;
+    height: 100%
+}
+
+
+
+.list { 
+    .list-item {
+        border-radius : 4px;
+        &:hover {
+            background-color: darken(white, 20%);
+        }
+    }
+}
+
+.section {
+    div {
+        margin: 20px auto;
+    }
+
+    p {
+        margin: 10px 0;
+    }
+
+    .examples { 
+        padding: 10px;
+        button {
+            margin: 7px 0
+        }
+        div { 
+            width: 50%
+        }
+        input {
+            display: block
+        }
+    }
+}
+
+.code {
+    padding: 10px;
+    width: 90%;
+    margin-top: 100px;
+    margin: 10px auto !important;
+    overflow-x: scroll;
+    border: 1px solid #ddd;
+    height: fit-content;
+    white-space: nowrap
+};
+
+.newPageForm {
+    margin: 20px 0;
+    * {
+        margin: 10px 0;
+    }
+    input { 
+        display: block;
+    }
+    button {
+        width : 100%
+    }
+};
+
+.sectionshow {
+    margin : 10px 0;
+    * { 
+        display: block;
+    }
+}
+
+.page { 
+    * {
+        margin: 10px 0;
+    }
+    ul { 
+        margin: 20px 0;
+    }
+}
+
+
+// loader styles
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0
+}
+
+.whole {
+    animation: 1.5s linear infinite rotation_animation;
+    height: 100px;
+    width: 100px;
+}
+
+
+@keyframes rotation_animation {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+
+@import '../mylibrary/index.scss';
+
+
+@include xs {
+    .sidebar {
+        overflow: hidden;
+        position: fixed;
+        top: 55px;
+        left:0px;
+        width: 0px;
+        // display: none;  
+    }
+    
+    .sidebar.open{
+        border-right : 1px solid #ddd;
+        width: 230px;
+        position: fixed;
+        top: 55px;
+        left:0px;
+        white-space : nowrap;
+        height: 100% !important;
+        z-index: 202;
+        background-color: white;
+        transition: width .5s
+    }
+
+}
+
+@include lg { 
+    .docmenu {
+        display: none;
+    }
+    .sidebar {
+        display: block;
+        overflow-y: scroll;
+        height: 500px;
+        max-height: 500px;
+        top: 55px
+    }
+}
+
+.navbar {
+    position: sticky;
+    top:0;
+    z-index: 300;
+}

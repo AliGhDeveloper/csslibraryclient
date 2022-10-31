@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    padding:0;
+    width: 100%;
+    align-items: center;
+    .nav-brand {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 10px 16px;
+    }
+
+    .nav-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+    }
+
+    .nav-item {
+        margin: 0 10px;
+        cursor: pointer;
+        user-select: none;
+        -moz-user-select: none;
+    }
+
+    .nav-link {
+        text-decoration : none;
+        color: black
+    }
+}

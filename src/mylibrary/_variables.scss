@@ -1,0 +1,27 @@
+//colors
+$primary : #3172db !default;
+$secondary : #625f62 !default;
+$success: #33f233 !default;
+$error : #ed1f3b !default;
+$light: #bfbbbf !default;
+
+$colors : (
+    'primary' : $primary,
+    'secondary' : $secondary,
+    'error' : $error,
+    'success' : $success,
+    'light' : $light,
+    'purple' : purple,
+    'yellow' : yellow,
+    'white' : white,
+    'black' : black,
+    'orange' : rgb(255, 121, 59)
+);
+
+$base-margin: 0.75rem;
+$base-padding : 0.75rem;
+
+
+$base-box-shadow : 1px 3px 5px rgba(0,0,0,0.1);
+
+

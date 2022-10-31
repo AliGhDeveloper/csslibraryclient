@@ -1,0 +1,21 @@
+@use 'sass:math';
+
+@debug map-merge($colors, ('purple' : #ffc0ce));
+
+.card {
+    display: block;
+    padding: math.div(($base-padding * 2), 2);
+    border: 1px solid #ddd;
+    box-shadow : $base-box-shadow;
+    
+    .card-title { 
+        font-size: 2rem;
+        font-weight: bolder
+    }
+
+    .card-body {
+        a{ 
+            text-decoration: underline
+        }
+    }
+}

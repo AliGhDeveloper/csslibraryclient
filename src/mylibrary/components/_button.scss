@@ -1,0 +1,39 @@
+@mixin btn($bg-color: white) {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius : 6px;
+    background-color: $bg-color;
+    @if( $bg-color == $secondary or $bg-color == $primary or $bg-color == $error  ) {
+        color : white
+    }
+    font-size: 0.90rem;
+    font-weight: bold;
+    box-shadow: $base-box-shadow;
+    cursor: pointer;
+    &:active {
+        background-color: darken($bg-color, 20%)
+    }
+}
+
+.btn {
+    @include btn;
+}
+
+@each $key, $val in $colors { 
+    .btn-#{$key} {
+        @include btn($val);
+        border : 1px solid darken($val, 30%);
+    }
+
+    .btn-outlined-#{$key} {
+        @include btn(#fff);
+        border : 1px solid $val;
+        color: $val;
+        border-color: $val;
+        &:active {
+            background-color: darken($val, 10%);
+            color: #fff
+        }
+    }
+}
+

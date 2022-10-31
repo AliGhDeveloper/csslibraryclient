@@ -1,0 +1,21 @@
+@each $key, $val in $colors {
+    .bg-#{$key} {
+        background-color: $val
+    }
+    .bg-#{$key}-hover {
+        &:hover {
+            background-color : $val
+        }
+    }
+    
+    @for $i from 1 through 9 {
+        .bg-#{$key}-light-#{$i} {
+            background-color : mix(white, $val, $i * 10)
+        }
+    }
+
+    .text-#{$key} {
+        color : $val
+    }
+}
+

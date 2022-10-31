@@ -1,0 +1,32 @@
+.modal {
+    flex-direction: column;
+    justify-content: space-around;
+    .modal-title {
+        margin: 0
+    }
+    .modal-body {
+        padding: 16px
+    }
+    .modal-footer {
+        display: flex;
+    }
+    display: none;
+    padding: 30px;
+    position: fixed;
+    top : 50%;
+    left : 50%;
+    width : 34%;
+    height : 26%;
+    margin-left: -17%;
+    margin-top: -13%;
+    border : 1px solid black;
+    box-shadow : $base-box-shadow;
+    z-index : 400;
+    background-color: white;
+    border-radius : 4px;
+}
+
+.modal.show {
+
+    display: flex;
+}

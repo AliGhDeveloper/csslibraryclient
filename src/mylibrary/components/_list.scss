@@ -1,0 +1,10 @@
+.list { 
+    list-style: none;
+    padding: $base-padding;
+    margin: $base-margin;
+    li {
+        padding: 8px;
+        width: fit-content;
+        cursor : pointer;
+    }
+}

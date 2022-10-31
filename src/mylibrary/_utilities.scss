@@ -1,0 +1,94 @@
+@use 'sass:math';
+
+$widthHeight : (
+    "25" : 25%,
+    "50" : 50%,
+    "75" : 75%,
+    "100" : 100%,
+);
+
+$padding-values : (
+    "0" : 0,
+    "1" : $base-padding,
+    "2" : $base-padding * 2,
+    "3" : $base-padding * 4,
+    "4" : $base-padding * 6,
+);
+
+$margin-values : (
+    "0" : 0,
+    "1" : $base-margin,
+    "2" : $base-margin * 2,
+    "3" : $base-margin * 4,
+    "4" : $base-margin * 6,
+);
+
+$utilities : (
+    "padding" : (
+        "prefix" : "p",
+        "values" : $padding-values
+    ),
+    "padding-left" : (
+        "prefix" : "pl",
+        "values" : $padding-values
+    ),
+    "padding-right" : (
+        "prefix" : "pr",
+        "values" : $padding-values
+    ),
+    "padding-top" : (
+        "prefix" : "pt",
+        "values" : $padding-values
+    ),
+    "padding-bottom" : (
+        "prefix" : "pb",
+        "values" : $padding-values
+    ),
+    "margin" : (
+        "prefix" : "m",
+        "values" : $margin-values
+    ),
+    "margin-left" : (
+        "prefix" : "ml",
+        "values" : $margin-values
+    ),
+    "margin-right" : (
+        "prefix" : "mr",
+        "values" : $margin-values
+    ),
+    "margin-top" : (
+        "prefix" : "mt",
+        "values" : $margin-values
+    ),
+    "margin-bottom" : (
+        "prefix" : "mb",
+        "values" : $margin-values
+    ),
+);
+
+@each $property, $map in $utilities {
+    $prefix : map-get($map, "prefix");
+    $values : map-get($map, "values");
+
+    @each $key, $val in $values {
+        @if($val == 'default') {
+            .#{$prefix} {
+                #{$property} : $val
+            }
+        } @else {
+            .#{$prefix}-#{$key} {
+                #{$property} : $val
+            }
+        }
+    }
+};
+
+@each $key, $val in $widthHeight {
+    .w-#{$key} {
+        width: $val
+    }
+
+    .h-#{$key} {
+        height: $val;
+    }
+}

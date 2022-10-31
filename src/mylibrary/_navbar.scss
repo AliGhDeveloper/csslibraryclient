@@ -1,0 +1,14 @@
+%navbar-layout {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+};
+
+.navbar {
+    padding: 16px;
+    @extend %navbar-layout;
+    .container {
+        @extend %navbar-layout;
+    }
+}
