@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Context } from "./store/globalstore";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -12,16 +12,26 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import IntroPage from './pages/Docs/IntroPage';
 import Modal from './components/layout/Modal';
-import Loading from './components/layout/loading';
+
 
 export default function App() {
-    const { state, dispatch } = useContext(Context);
+    const { state: {pages, auth, sidebar, loading}, dispatch } = useContext(Context);
+    const [syncing, setSyncing] = useState(true);
+    
+    useEffect(() => {
+        if(pages.length > 0) setSyncing(false)
+    },[pages])
+
+    useEffect(() => {
+        dispatch({type: 'LOADING', payload: {status: syncing}})
+    },[syncing])
+
     const handleClick = (e) => {
         if(!e.target.closest('.sidebar')){
-            dispatch({type: 'SIDEBAR', payload: {...state.sidebar, open: false}})
+            dispatch({type: 'SIDEBAR', payload: {...sidebar, open: false}})
         }
     }
-    if(state.pages && state.pages.length > 0) {
+    if(!syncing) {
         return (
             <>
                 <Navbar />
@@ -33,10 +43,10 @@ export default function App() {
                     <Route path="/docs" element={<DocsLayout />}>
                         <Route path="/docs/intro" element={<IntroPage />} />
                         {   
-                            state.pages && state.pages.map( page =><Route key={page.id} path={`/docs/${page.name}/:id`} element={<DocPage />} />)
+                            pages && pages.map( page =><Route key={page.id} path={`/docs/${page.name}/:id`} element={<DocPage />} />)
                         }
                         {
-                            state.auth && state.auth.accesstoken && 
+                            auth && auth.accesstoken && 
                             <>
                             <Route path="/docs/modify" element={<CreatePage />}/>
                             <Route path="/docs/modify/:id" element={<CreatePage />}/>
@@ -51,6 +61,6 @@ export default function App() {
             </>
         )
     } else {
-        return <Loading />
+        return null
     }
 };

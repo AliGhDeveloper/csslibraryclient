@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 
 const link = createHttpLink({
-    uri: 'https://csslibraryserver.herokuapp.com/graphql',
+    uri: 'http://localhost:4000/graphql',
     credentials: "include"
   });
   
