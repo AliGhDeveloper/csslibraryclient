@@ -15,23 +15,23 @@ import Modal from './components/layout/Modal';
 
 
 export default function App() {
-    const { state: {pages, auth, sidebar, loading}, dispatch } = useContext(Context);
-    const [syncing, setSyncing] = useState(true);
+    const { state: {pages, auth, sidebar}, dispatch } = useContext(Context);
+    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
-        if(pages.length > 0) setSyncing(false)
+        if(pages.length > 0) setLoading(false)
     },[pages])
 
     useEffect(() => {
-        dispatch({type: 'LOADING', payload: {status: syncing}})
-    },[syncing])
+        dispatch({type: 'LOADING', payload: {status: loading}})
+    },[loading])
 
     const handleClick = (e) => {
         if(!e.target.closest('.sidebar')){
             dispatch({type: 'SIDEBAR', payload: {...sidebar, open: false}})
         }
     }
-    if(!syncing) {
+    if(!loading) {
         return (
             <>
                 <Navbar />
