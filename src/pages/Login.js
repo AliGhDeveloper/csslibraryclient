@@ -21,8 +21,8 @@ export default function Login(){
             
             Cookies.set('refreshtoken', userData.data.login.refreshtoken, {
                 expires : 7,
-                domain: 'https://csslibraryserver.herokuapp.com',
-                path: "/graphql"
+                domain: 'https://csslibraryaligh.netlify.app',
+                path: "/"
             });
             return navigate('/')
         }
