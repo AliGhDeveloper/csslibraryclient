@@ -23,7 +23,7 @@ export default function DocPage() {
         
     }, [data])
 
-    if(!Object.keys(page).length < 0 ) return null
+    if(Object.keys(page).length < 0 ) return null
 
     return (
         <div className="container page">
