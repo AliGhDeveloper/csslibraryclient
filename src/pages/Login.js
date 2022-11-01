@@ -19,11 +19,10 @@ export default function Login(){
             dispatch({ type : "AUTH", payload: userData.data.login});
             localStorage.setItem('first login', true);
             
-            Cookies.set('refreshtoken', userData.data.login.refreshtoken, {
-                expires : 7,
-                domain: 'https://csslibraryaligh.netlify.app',
-                path: "/"
-            });
+            // Cookies.set('refreshtoken', userData.data.login.refreshtoken, {
+            //     expires : 7,
+            // });
+            
             return navigate('/')
         }
     }, [userData])
